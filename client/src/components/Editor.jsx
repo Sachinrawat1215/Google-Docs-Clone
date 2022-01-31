@@ -45,7 +45,7 @@ const Editor = () => {
     }, []);
 
     useEffect(() => {
-        const socketServer = io('https://mydocsbackendapi.herokuapp.com');
+        const socketServer = io('https://mydocsbackendapi.herokuapp.com/');
         setsocket(socketServer);
         return () => {
             socketServer.disconnect();

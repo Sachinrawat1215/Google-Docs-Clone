@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const PORT = 8200;
+const PORT = process.env.PORT;
 
 const URL = process.env.MONGODB_URI;
 
@@ -13,7 +13,7 @@ Connection(URL);
 
 const io = new Server(PORT, {
     cors: {
-        origin: 'https://myalldocs.netlify.app',
+        origin: 'http://localhost:3000',
         method: ['GET', 'POST']
     }
 });
