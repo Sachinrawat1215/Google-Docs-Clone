@@ -45,7 +45,7 @@ const Editor = () => {
     }, []);
 
     useEffect(() => {
-        const socketServer = io('https://mydocsbackendapi.herokuapp.com/');
+        const socketServer = io(process.env.NODE_ENV === 'development' ? process.env.REACT_APP_STAGING_URL : process.env.REACT_APP_SERVER_URL);
         setsocket(socketServer);
         return () => {
             socketServer.disconnect();
