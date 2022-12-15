@@ -5,7 +5,7 @@ const dotenv = require('dotenv');
 
 dotenv.config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 8000;
 
 const URL = process.env.MONGODB_URI;
 
@@ -13,7 +13,7 @@ Connection(URL);
 
 const io = new Server(PORT, {
     cors: {
-        origin: 'http://localhost:3000',
+        origin: ['http://localhost:3000', 'http://localhost:3001', 'https://getdocs.vercel.app'],
         method: ['GET', 'POST']
     }
 });
