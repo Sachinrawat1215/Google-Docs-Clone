@@ -14,8 +14,8 @@ body{
     width: 800px;
     background-color: #fff;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
-    min-height: 100vh;
-    padding: 30px;
+    min-height: 80vh;
+    padding: 20px;
 }
 
 .ql-toolbar.ql-snow{
@@ -29,9 +29,17 @@ body{
     padding: 15px 0;
     box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
     font-size: 20px;
+    flex-wrap: wrap;
+    gap: 8px 0;
 }
 
 .ql-editor{
     font-size: 16px;
     min-height: 100vh;
+}
+
+@media (max-width: 830px){
+    .container{
+        width: calc(100% - 10px);
+    }
 }
