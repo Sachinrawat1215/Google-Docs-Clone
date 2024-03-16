@@ -1,4 +1,4 @@
-# COWRITE - Read-time document editor
+# COWRITE - Realtime Document Editor
 
 ## React Login UI with User Signup Backend (Mongoose, Express)
 
