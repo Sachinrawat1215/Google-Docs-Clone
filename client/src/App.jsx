@@ -8,7 +8,7 @@ const App = () => {
   return (
     <Router>
       <Routes>
-        {/* <Route path='/' element={<Navigate replace to={`/docs/${uuid()}`} />} /> */}
+        <Route path='/' element={<Navigate replace to={`/docs/${uuid()}`} />} />
         <Route path='/login' element={<Login />} />
         <Route path='/docs/:id' element={<Editor />} />
       </Routes>
