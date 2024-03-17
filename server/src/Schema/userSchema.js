@@ -28,6 +28,10 @@ const userSchema = new mongoose.Schema(
       type: [String],
       maxItems: 2,
     },
+    document: {
+      type: [String],
+      ref: "documents"
+    }
   },
   { timestamps: true }
 );
