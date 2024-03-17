@@ -3,12 +3,13 @@ import Editor from './components/Editor';
 import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import {v4 as uuid} from 'uuid';
 import Login from './components/Login/Login';
+import Home from './components/Home/Home';
 
 const App = () => {
   return (
     <Router>
       <Routes>
-        <Route path='/' element={<Navigate replace to={`/docs/${uuid()}`} />} />
+        <Route path='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
         <Route path='/docs/:id' element={<Editor />} />
       </Routes>
