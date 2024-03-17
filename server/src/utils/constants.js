@@ -9,4 +9,9 @@ module.exports = {
   INVALID_CREDENTIALS_MESSAGE: 'Invalid email or password',
   LOGIN_SUCCESS_MESSAGE: 'Login successful',
   LOGIN_FAILED_MESSAGE: 'Login failed',
+
+  // Document
+  FAILED_TO_FETCH_DOCUMENT: 'Failed to fetch documents',
+  UPDATE_DOCUMENT_FAILED_MESSAGE: 'Failed to update document',
+  NO_DOCUMENT_FOUND_MESSAGE: 'No document found'
 };
