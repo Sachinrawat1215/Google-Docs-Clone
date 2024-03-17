@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
+import {useNavigate} from 'react-router-dom';
+import { STRINGS } from '../../utils/contants';
+import { loginUser } from '../../api/api';
 import './Login.scss';
-import { STRINGS } from '../../utils/contants'; // Importing constants
 
-function Login() {
-  const [formData, setFormData] = useState({ email: '', password: '' });
+const Login = () => {
+  const [formData, setFormData] = useState({ email: 'sachin@gmail.com', password: 'hesdfllo' });
   const [passwordError, setPasswordError] = useState('');
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -16,13 +19,24 @@ function Login() {
     console.log('Forgot password clicked');
   };
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
     if (formData.password.length < 8) {
       setPasswordError(STRINGS.PASSWORD_LENGTH_ERROR_MESSAGE);
     } else {
-      // Handle login logic here (submit email and password)
-      console.log(`Email: ${formData.email}, Password: ${formData.password}`);
+      try {
+        const loginResponse = await loginUser(
+          formData.email,
+          formData.password
+        );
+        localStorage.setItem('COWRITE', JSON.stringify(loginResponse.data))
+        console.log('Login successful:', loginResponse);
+        navigate('/home')
+        // Handle successful login (e.g., store token, redirect)
+      } catch (error) {
+        console.error('Login error:', error);
+        // Handle login failure (e.g., display error message)
+      }
     }
   };
 
@@ -60,11 +74,9 @@ function Login() {
           {STRINGS.SIGN_IN_BUTTON_TEXT}
         </button>
       </form>
-      <p className="signup-link">
-        {STRINGS.SIGN_UP_LINK_TEXT}
-      </p>
+      <p className="signup-link">{STRINGS.SIGN_UP_LINK_TEXT}</p>
     </div>
   );
-}
+};
 
 export default Login;
