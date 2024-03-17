@@ -1,5 +1,6 @@
 const { Server } = require('socket.io');
-const { getDocument, updateDocument } = require('./document-controller');
+const getDocumentById = require('./documents/getDocumentById');
+const updateDocumentById = require('./documents/updateDocumentById');
 
 module.exports = (server) => {
   const io = new Server(server, {
@@ -16,7 +17,7 @@ module.exports = (server) => {
   io.on('connection', (socket) => {
       socket.on('get-document', async (documentId) => {
         console.log('connection established')
-      const document = await getDocument(documentId);
+      const document = await getDocumentById(documentId);
       socket.join(documentId);
       socket.emit('load-document', document.data);
 
@@ -25,7 +26,7 @@ module.exports = (server) => {
       });
 
       socket.on('save-document', async (data) => {
-        await updateDocument(documentId, data);
+        await updateDocumentById(documentId, data);
       });
     });
   });

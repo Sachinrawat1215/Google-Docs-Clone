@@ -1,9 +1,9 @@
-const Document = require('../Schema/documentSchema');
+const DocumentModel = require('../Schema/documentSchema');
 
 const getDocument = async (id) => {
     if(id === null) return;
 
-    const document = await Document.findById(id);
+    const document = await DocumentModel.findById(id);
 
     if(document) return document;
 
@@ -11,7 +11,7 @@ const getDocument = async (id) => {
 }
 
 const updateDocument = async (id, data) => {
-    return await Document.findByIdAndUpdate(id, {data});
+    return await DocumentModel.findByIdAndUpdate(id, {data});
 }
  
 module.exports = {getDocument, updateDocument};
