@@ -11,7 +11,10 @@ module.exports = {
   LOGIN_FAILED_MESSAGE: 'Login failed',
 
   // Document
-  FAILED_TO_FETCH_DOCUMENT: 'Failed to fetch documents',
+  FAILED_TO_FETCH_DOCUMENTS: 'Failed to fetch documents',
+  NO_DOCUMENTS_FOUND_MESSAGE: 'No documents found',
   UPDATE_DOCUMENT_FAILED_MESSAGE: 'Failed to update document',
-  NO_DOCUMENT_FOUND_MESSAGE: 'No document found'
+  CREATE_DOCUMENT_FAILED_MESSAGE: 'Failed to create document',
+  DOCUMENT_CREATED_MESSAGE: 'Document created!',
+  DOCUMENTS_RETRIEVED_SUCCESSFULLY: 'Documents retrieved successfully'
 };

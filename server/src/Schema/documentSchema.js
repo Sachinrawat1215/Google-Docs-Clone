@@ -1,15 +1,22 @@
 const mongoose = require('mongoose');
 
-const documentSchema = mongoose.Schema({
-    _id: {
-        type: String,
-        required: true
+const documentSchema = new mongoose.Schema(
+  {
+    userId: {
+      type: String,
+      required: true,
+    },
+    title: {
+      type: String,
+      required: true,
     },
     data: {
-        type: Object,
-        required: true
-    }
-});
+      type: Object,
+      required: true,
+    },
+  },
+  { timestamps: true }
+);
 
 const DocumentModel = mongoose.model('document', documentSchema);
 
