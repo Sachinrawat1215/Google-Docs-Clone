@@ -1,11 +1,14 @@
 import React, { useState } from 'react';
-import {useNavigate} from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import { STRINGS } from '../../utils/contants';
 import { loginUser } from '../../api/api';
 import './Login.scss';
 
 const Login = () => {
-  const [formData, setFormData] = useState({ email: 'sachin@gmail.com', password: 'hesdfllo' });
+  const [formData, setFormData] = useState({
+    email: 'sachin@gmail.com',
+    password: 'hesdfllo',
+  });
   const [passwordError, setPasswordError] = useState('');
   const navigate = useNavigate();
 
@@ -29,9 +32,12 @@ const Login = () => {
           formData.email,
           formData.password
         );
-        localStorage.setItem('COWRITE', JSON.stringify(loginResponse.data))
+        localStorage.setItem(
+          process.env.REACT_APP_LOCAL_STORAGE_USER_DATA,
+          JSON.stringify(loginResponse.data)
+        );
         console.log('Login successful:', loginResponse);
-        navigate('/home')
+        navigate('/');
         // Handle successful login (e.g., store token, redirect)
       } catch (error) {
         console.error('Login error:', error);
