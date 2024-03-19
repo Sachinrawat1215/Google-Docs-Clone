@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate, Link } from 'react-router-dom';
 import { STRINGS } from '../../utils/contants';
-import { loginUser } from '../../api/api';
+import { registerUser } from '../../api/api';
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -31,20 +31,19 @@ const Register = () => {
       setPasswordError(STRINGS.CONFIRM_PASSWORD_MISMATCH_ERROR); // New constant
     } else {
       try {
-        const loginResponse = await loginUser(
-          formData.email,
-          formData.password
-        );
-        localStorage.setItem(
-          process.env.REACT_APP_LOCAL_STORAGE_USER_DATA,
-          JSON.stringify(loginResponse.data)
-        );
-        console.log('Login successful:', loginResponse);
-        navigate('/');
-        // Handle successful login (e.g., store token, redirect)
+        const registerResponse = await registerUser({
+          name: formData.name,
+          email: formData.email,
+          password: formData.password,
+        });
+
+        if (registerResponse.status) {
+          navigate('/login');
+        } else {
+          console.log(`Failed to register user`);
+        }
       } catch (error) {
         console.error('Login error:', error);
-        // Handle login failure (e.g., display error message)
       }
     }
   };
