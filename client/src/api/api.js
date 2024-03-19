@@ -14,6 +14,20 @@ const loginUser = async (email, password) => {
   }
 };
 
+const registerUser = async ({ name, email, password }) => {
+  try {
+    const response = await axios.post(`${API_URL}/register`, {
+      name,
+      email,
+      password,
+    });
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw new Error('Registration failed!');
+  }
+};
+
 const createDocument = async ({ userId, title }) => {
   try {
     console.log({ userId, title });
@@ -39,4 +53,4 @@ const getAllUserDocuments = async (userId) => {
   }
 };
 
-export { loginUser, createDocument, getAllUserDocuments };
+export { loginUser, registerUser, createDocument, getAllUserDocuments };
