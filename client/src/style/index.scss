@@ -1,0 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Vazirmatn:wght@100..900&display=swap');
+
+@import './variable.scss';
+@import './login.scss';
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Vazirmatn', sans-serif;
+}
+
+body {
+  background-color: #f2fff9;
+  /* background-color: #f1f2f6; */
+}
+
+.container {
+  margin: 30px auto;
+  width: 800px;
+  background-color: #fff;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.1);
+  min-height: 80vh;
+  padding: 20px;
+}
+
+.ql-toolbar.ql-snow {
+  display: flex;
+  justify-content: center;
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  background-color: white;
+  border: none;
+  padding: 15px 0;
+  box-shadow: 0 0 5px 0 rgba(0, 0, 0, 0.5);
+  font-size: 20px;
+  flex-wrap: wrap;
+  gap: 8px 0;
+}
+
+.ql-editor {
+  font-size: 16px;
+  min-height: 100vh;
+}
+
+a {
+  display: inline-block;
+  color: white;
+  text-decoration: none;
+}
+
+h1 {
+  font-size: 48px;
+  color: white;
+}
+
+.blue {
+  color: #1d90f5;
+}
+
+@media (max-width: 830px) {
+  .container {
+    width: calc(100% - 10px);
+  }
+}
