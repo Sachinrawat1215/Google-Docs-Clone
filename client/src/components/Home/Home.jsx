@@ -3,6 +3,7 @@ import { useNavigate, Link } from 'react-router-dom';
 import './Home.scss';
 import { createDocument, getAllUserDocuments } from '../../api/api';
 import { STRINGS } from '../../utils/contants';
+import Header from '../Header/Header';
 
 function Home() {
   const navigate = useNavigate();
@@ -46,6 +47,7 @@ function Home() {
 
   return (
     <div className="documents-container">
+      <Header />
       <h1 className="username">
         {STRINGS.HI_WELCOME} {userData.name},
       </h1>

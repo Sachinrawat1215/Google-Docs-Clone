@@ -1,0 +1,30 @@
+header {
+  background-color: $bg-primary;
+  display: flex;
+  justify-content: center;
+
+  .icon-logout-container {
+    width: 90%;
+    display: flex;
+    justify-content: space-between;
+    padding: 15px 0;
+
+    img {
+      width: 120px;
+    }
+
+    button {
+      display: flex;
+      align-items: center;
+      background-color: $bg-primary;
+      border: none;
+      color: white;
+      cursor: pointer;
+
+      p {
+        font-size: 18px;
+        margin: 5px 10px 0 0;
+      }
+    }
+  }
+}

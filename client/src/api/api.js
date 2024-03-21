@@ -1,7 +1,7 @@
 import axios from 'axios';
 axios.defaults.withCredentials = true;
 
-const API_URL = 'http://localhost:8000/api';
+const API_URL = 'http://localhost:9000/api';
 
 const loginUser = async (email, password) => {
   try {
