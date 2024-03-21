@@ -39,7 +39,7 @@ socketFunctions(server);
 app.use('/', routes);
 
 // Define port numbers
-const EXPRESS_PORT = process.env.EXPRESS_PORT || 8000;
+const EXPRESS_PORT = process.env.EXPRESS_PORT || 9000;
 
 // Set up Express server
 server.listen(EXPRESS_PORT, () => {
