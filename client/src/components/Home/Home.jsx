@@ -1,9 +1,8 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate, Link } from 'react-router-dom';
-import './Home.scss';
-import { createDocument, getAllUserDocuments } from '../../api/api';
-import { STRINGS } from '../../utils/contants';
-import Header from '../Header/Header';
+import React, { useState, useEffect } from "react";
+import { useNavigate, Link } from "react-router-dom";
+import { createDocument, getAllUserDocuments } from "../../api/api";
+import { STRINGS } from "../../utils/contants";
+import Header from "../Header/Header";
 
 function Home() {
   const navigate = useNavigate();
@@ -48,34 +47,40 @@ function Home() {
   return (
     <div className="documents-container">
       <Header />
-      <h1 className="username">
-        {STRINGS.HI_WELCOME} {userData.name},
-      </h1>
-      <button className="create-doc-button" onClick={handleCreateNewDoc}>
-        {STRINGS.CREATE_NEW_DOCUMENT_BUTTON}
-      </button>
-      <ul className="documents-list">
-        {documents.map((document) => (
-          <li key={document._id} className="document-item">
-            <div className="document-details">
-              <span className="document-title">
-                {document.title || 'Document Title'}
-              </span>
-              <span className="document-updated-at">
-                {new Date(document.updatedAt).toLocaleString()}
-              </span>
-            </div>
-            <div className="document-actions">
-              <button>
-                <Link to={`/docs/${document._id}`}>
-                  {STRINGS.EDIT_BUTTON_TEXT}
-                </Link>
-              </button>
-              <button>{STRINGS.DELETE_BUTTON_TEXT}</button>
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div className="home-container">
+        <div className="username-new-doc-btn">
+          <h1 className="username">
+            {STRINGS.HI_WELCOME} {userData.name},
+          </h1>
+          <button className="create-doc-button" onClick={handleCreateNewDoc}>
+            {STRINGS.CREATE_NEW_DOCUMENT_BUTTON}
+          </button>
+        </div>
+        <h2>All Saved Documents:</h2>
+        <ul className="documents-list">
+          {!documents.length && <p className="no-doc-msg">No saved documents found!</p>}
+          {documents.map((document, index) => (
+            <li key={document._id} className="document-item">
+              <div className="document-details">
+                <span className="document-title">
+                  {`${index + 1}.`} {document.title || "Document Title"}
+                </span>
+                <span className="document-updated-at">
+                  {new Date(document.updatedAt).toLocaleString()}
+                </span>
+              </div>
+              <div className="document-actions">
+                <button className="edit-btn">
+                  <Link to={`/docs/${document._id}`}>
+                    {STRINGS.EDIT_BUTTON_TEXT}
+                  </Link>
+                </button>
+                <button>{STRINGS.DELETE_BUTTON_TEXT}</button>
+              </div>
+            </li>
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }

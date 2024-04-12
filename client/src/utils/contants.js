@@ -10,11 +10,11 @@ export const STRINGS = {
   NEW_USER: "Not a member yet?",
 
   // Home
-  HI_WELCOME: 'Hi, Welcome',
+  HI_WELCOME: 'Hi ',
   CREATE_DOCUMENT_PROMPT: 'Please enter document title',
   CREATE_DOCUMENT_FAILED_MESSAGE: 'Failed to create document',
   FETCH_DOCUMENTS_FAILED_MESSAGE: 'Failed to fetch documents',
-  CREATE_NEW_DOCUMENT_BUTTON: 'Create New Doc',
+  CREATE_NEW_DOCUMENT_BUTTON: '+ Create New Doc',
   EDIT_BUTTON_TEXT: 'Edit',
   DELETE_BUTTON_TEXT: 'Delete',
 

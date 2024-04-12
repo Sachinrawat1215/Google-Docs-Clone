@@ -1,0 +1,77 @@
+.home-container {
+  width: 1080px;
+  margin: 0 auto;
+
+  .username-new-doc-btn {
+    display: flex;
+    justify-content: space-between;
+    margin: 20px 0;
+
+    h1 {
+      color: #272a37;
+      font-size: 30px;
+    }
+
+    button {
+      background-color: #272a37;
+      color: white;
+      padding: 10px 30px;
+      border: none;
+      outline: none;
+      font-size: 17px;
+      border-radius: 50px;
+    }
+  }
+
+  h2 {
+    font-size: 20px;
+    font-weight: 500;
+    color: $bg-primary;
+    margin-top: 40px;
+  }
+
+  .documents-list {
+    .no-doc-msg {
+      font-size: 16px;
+      margin-top: 15px;
+      color: rgb(117, 117, 117);
+    }
+
+    .document-item {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin: 20px 0;
+      .document-details {
+        .document-title {
+          width: 700px;
+          display: inline-block;
+        }
+
+        .document-updated-at{
+          font-size: 14px;
+          font-weight: 500;
+          color: #7e7e7e;
+        }
+      }
+
+      .document-actions{
+        button{
+          padding: 7px 20px;
+          border-radius: 5px;
+          outline: none;
+          border: none;
+          margin: 0 5px;
+          background-color: $bg-primary;
+          color: white;
+          cursor: pointer;
+        }
+
+        button.edit-btn{
+          background-color: $blue;
+          color: white;
+        }
+      }
+    }
+  }
+}
